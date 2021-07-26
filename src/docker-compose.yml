@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  hostel_backend:
+    container_name: hostel_backend
+    build: .
+    command: uvicorn main:app --reload --workers 1 --host 0.0.0.0 --port 6000
+    volumes:
+      - ./:/code/:delegated
+    ports:
+      - 6002:6000
+    env_file:
+      - .env
+    depends_on:
+      - hostel_db
+
+  hostel_db:
+    container_name: hostel_db
+    build:
+      context: ./hostel_db
+      dockerfile: Dockerfile
+    volumes:
+      - ./hostel_pg_data/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres

@@ -1,0 +1,8 @@
+# APP
+fastapi
+fastapi-utils
+uvicorn
+asyncpg
+tortoise-orm
+fastapi-camelcase
+python-multipart
