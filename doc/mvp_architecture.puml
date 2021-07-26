@@ -1,0 +1,9 @@
+@startuml
+'Model, View, Presentation
+component "View Layer \n(API, Frontend)" as view_layer
+component "Presentation Layer \n(Business Logic)" as presentation_layer
+component "Model Layer \n(Persistence,\n Database)" as model_layer
+
+view_layer --> presentation_layer
+presentation_layer --> model_layer
+@enduml

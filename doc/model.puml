@@ -1,0 +1,11 @@
+@startuml
+
+object "Room" as room{
+    * beds
+}
+
+object "Bed" as bed
+
+room o-- bed
+
+@enduml
